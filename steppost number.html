@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+
+#divleft
+{
+margin-left: 0px;
+}
+#divlarr
+{
+   margin-left: 120px;
+   
+   height: 30px;
+   width: 30px;   color: blue;
+}
+#divrarr
+{
+   margin-left: 8px;
+   height: 20px;
+   width: 20px;   color: blue;
+}
+
+#div5
+{
+margin-left: 200px;
+}
+#divblotbl
+{
+   margin-left: 250px;
+}
+
+#divlarr, #divtable, #divrarr, #divbtn
+{
+   display: inline;
+   float: left;
+}
+
+#divbtn
+{
+margin-left: 50px;
+}
+
+#div1, #div2, #div3, #div4
+{
+float: left;
+display: inline;
+margin-right: 30px;
+max-width: 50px;
+margin-left: 105px;
+
+}
+article
+{
+margin-left: 5px;
+color: white;
+}
+.circleBase {
+    border-radius: 50%;
+    behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+}
+
+.type1 {
+    width: 20px;
+    height: 20px;
+    background: red;
+    border: 3px solid red;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-left: 5px;
+}
+
+td, th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 0px;
+}
+tr:nth-child(n + 10) {
+    visibility: visible;
+}
+</style>
+</head>
+<body>
+
+<div id="div1" class="circleBase type1">
+<article>9</article>
+</div>
+
+<div id="div2" class="circleBase type1">
+<article>9</article>
+</div>
+
+<div id="div3" class="circleBase type1">
+<article>9</article>
+</div>
+
+<div id="div4" class="circleBase type1">
+<article>9</article>
+</div>
+<br><br><br><br><br><br>
+<div id="div5">
+<form name="sfrm">
+<strong><h1>Search:</h1> </srong> <input type="text" id="jds"></input> by 
+     <select id="lisftr"><option>company</option>
+		  <option>Description</option>
+		  <option>Status</option>
+		  <option>mo/yr</option>
+	</select>
+   <input type="submit" id="lisfnd" value="Go" action=""></input>
+</form>
+<br><br>
+</div>
+<div id="divlarr"> 
+   <h1> << </h1>
+</div>
+
+<div id=divtable>
+<table>
+  <tr>
+    <th>Select</th>
+    <th>Status</th>
+    <th style="width:200px">Company Name</th>
+    <th>Job Title</th>
+    <th>Action</th>
+    <th>Date</th>
+  </tr>
+<tr>
+  <td><input type="checkbox" id="recsel" onclick=""></input></td>
+  <td> closed</td>
+  <td> Department of Transportation</td>
+  <td> Triage Analyst</td>
+  <td> Applied</td>
+  <td> 05/04/17</td>
+</tr>
+</table>
+</div>
+<div id="divrarr">
+<h1> >> </h1>
+</div>
+<div id="divbtn">
+<button id="lisadd" value="New" type="submit" formaction="">New</button> <br><br>
+<button id="lisedd" value="Edit"type="submit" formaction="">Edit</button> <br><br>
+<button id="lisdel" value="Remove" type="submit" formaction="">Remove</button><br>
+</div>
+<div id="divblotbl">
+   <button id="listrm" value="Display Selected" type="submit" formaction=""> Display Selected</button>
+</div>
+</body>
+</html>

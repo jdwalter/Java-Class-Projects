@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+	<head>
+		<style>
+			form * {
+			margin-right:40px;
+			}
+			textarea.relative
+			{
+			top: -30px;
+			}
+			a:active
+			{
+			background-color: green;
+			}
+		</style>
+		<title></title>
+		<script>
+			var nattr;
+			var oattr;
+			var ntvchk;
+			 var frmobj;
+			var clickcount=0;
+			function formshide() 
+			{
+				
+				var i=0;
+				var j=document.forms.length;
+				for (i=0; i<j; i++) 
+				{
+					
+					 document.forms[i].style.display = "none";
+				}
+				if (clickcount > 1) 
+				{
+				 document.getElementById(oattr).style.backgroundColor = "white"; 
+				
+				 oattr = nattr;
+				}
+			}
+		 function stephide(frmobj, i) 
+		{
+			clickcount+=1;	
+			var chkvar;
+			chkvar = document.getElementById(frmobj);   
+			var s1 = "j";					
+			var s2 = frmobj.substring(0,3);
+			ntvchk = document.getElementById(s1.concat(s2));
+
+			if (i == 1)
+			{
+				nattr = s2;
+				makeyellow();
+				formshide();
+				oattr = s2;
+			}
+			else if (i==0)
+			{
+
+			
+			}
+			if (i== 1 || (i==0 && ntvchk.checked == true))
+			{
+			
+			// this is the form to display
+			chkvar.style.display = "block";
+			}
+			if (i==0 && ntvchk.checked == false)
+			{
+				// form to display
+				chkvar.style.display = "none"
+			}
+			// form to display
+		
+			chkvar.style.backgroundColor = "Turquoise"; 
+				
+			i=0;
+		} 
+		
+	function makeyellow()
+ 	{
+		document.getElementById(nattr).style.backgroundColor = "yellow"; 
+		}
+		</script>
+		
+	</head>
+	
+	<body onload="formshide()">
+
+		<a href="#" id="an4" onclick="stephide('an4frm', 1);">Apply Info</a>
+		<a href="#" id="rec" onclick="stephide('recfrm', 1);">Recruiter</a>
+		<a href="#" id="rsp" onclick="stephide('rspfrm', 1);">Response</a>
+		<a href="#" id="cin" onclick="stephide('cinfrm', 1);">Contact</a>
+		<a href="#" id="ntv" onclick="stephide('ntvfrm', 1);">Interview</a>
+		<a href="#" id="clo" onclick="stephide('clofrm', 1);">Closed </a> <br> <br>
+		
+		<br> <br>
+		<form name="appnfo" id="an4frm">
+			Job Title: <input type="text" id="jtitle"> </input>
+			Company Name: <input type="text" id="coname"></input>
+			Compensation: <input type="text" maxlength="7" size="4" id="compamt"></input><br></br>
+			Job Description: <textarea cols="50" rows="3" id="jdescr"></textarea> <br></br>
+			Apply Date: <input type="date" id="apdate"> </input>  <br></br> <br></br>
+			Job #:  <input type="text" id="jobno"></input> <br></br>
+			Action Taken: <select>
+				<option>Web site </option>
+				<option>E-mail </option>	
+				<option>Craigslist</option>
+			<option>Phone </option></select>
+			
+			Populatnes contact fields<br>
+			Web site: <input type="text" id="jweb"></input>	E-mail: <input type="text" id="jeml"></input>  <br> 
+			Craigslist: <input type="text" id="jcraig"></input> 
+			Phone : <input type="text" id="phoneno"></input> <br>
+			<strong>Respons:</strong> <input type="checkbox" id="jrsp" onclick="stephide('rspfrm', 0);"></input>
+		</form>
+		<form name="rspfrm" id="rspfrm">
+			Response fields open up
+			Response Type:
+			<select>
+				<option>Phone</option>
+				<option>E-mail</option>
+			</select> <br>
+			</input> Populates fields to enter contact data <br>
+			Interview <input type="checkbox" id="jntv" onclick="stephide('ntvfrm', 0);"></input>
+			Populates fields to enter Interview data <br>
+		</form>
+		<form name="ntvfrm" id="ntvfrm">
+			Interview Type <select>
+				<option>Phone</option>
+				<option>In-Person</option>
+				<option>Skype</option>
+			</select>
+			
+			Conversation Details: <input type="textarea" id="cdtls"></input>
+			Status: <select>
+				<option>Pending</option>
+				<option>Closed</option>
+			</select>
+			Pending Automatically set if not closed, hired, or interview <br>
+			Interview Date/Time <input type="datetime-local" id="itvdate"></input> <br>
+			Contact  <input type="checkbox" id="jcin" onclick="stephide('cinfrm', 0)"></input>
+		</form>
+		<form name="cinfrm" id="cinfrm">
+			<strong>Company Contact</strong><br>
+			Contact Name: <input type="text" id="jcname"></input>
+			E-mail: <input type="text" id="jceml"></input><br>
+			Phone: <input type="text" "id=jcphone"></input>
+			Web site: <input type="text" id="jdwebsite"></input><br>
+			Company Name: <input type="text" "id=jccname"></input> <br>
+			Recruiter <input type="checkbox" id="jrec" onclick="stephide('recfrm', 0)"></input><br>
+		</form>
+		<form name="recfrm" id="recfrm">
+			<strong>Recruiter Contact </strong> <br>
+			Recruiter Name: <input type="text" id="rcname"></input> 
+			Company: <input type="text" id="coname"></input> 
+			Contact Fileds for contact info <br>
+			
+			<strong>Closed</strong> <input type="checkbox" id="jclo" onclick="stephide('clofrm', 0)"></input>
+		</form>
+		<form name="clofrm" id="clofrm">
+			Closed Reason:
+			<select> 
+				<option>Rejection</option>
+				<option>Test</option>
+				<option>No Response</option>
+				<option>Hired </option>
+			<option>Other</option></select>
+			<br>
+			Close Date: <input type="date" id="cdate"></input> <br>
+			Notes:		<textarea cols="50" rows="3" id="clonotes">
+			</textarea>
+		</form>
+		<br>
+		
+		Interview [x]
+		Date/Time
+		Contact 
+		Company Name [x]
+		Recruiter[x]
+		Type [x]
+		Phone #
+		Notes(Apply, Response)
+		2nd px[ Populate another set of interview form fields
+		3rd [x] Populate another set of interview form fields
+		
+		Interview Type [x]
+		Interviewer's Name <input type="text" id="ntvname">
+		Phone <input type="text" id="ntvphoneno">
+		In-Person  Address 1: <input type="text" id="ntvaddr1"></input>
+		In-Person Address 2: <input type="text" id="intvaddr2"></input>
+		Skype <input type="text" id="ntvskypeid">
+		Pending [x]
+		Notes: <input type="textrea" id="pendnotes">
+		Reason [x]
+		<select>
+			<option>Test</option>
+			<option>Interview #</option>
+			<option>Response</option>
+			<option>Background Check</option>
+	<option>Other</option></select>
+
+</body>
+</html>
+
+      
